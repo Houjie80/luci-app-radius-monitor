@@ -48,7 +48,7 @@ chmod +x /usr/bin/radmon-exec /usr/bin/radmon-log /usr/bin/radmon-kuota
 sleep 1
 
 echo -e "\e[33mChange radmon\e[0m"
-unzip /root/radmonv2.zip -d /usr/share
+unzip /root/RadMonv2.zip -d /usr/share
 
 sleep 1
 
