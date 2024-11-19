@@ -13,11 +13,11 @@ fi
 
 sleep 1
 
-echo -e "\e[33mClone Repository\e[0m"
-git clone --depth 1 https://github.com/maizil41/RadMonv2.git /usr/share/RadMonv2 > /dev/null 2>&1
+# echo -e "\e[33mClone Repository\e[0m"
+# git clone --depth 1 https://github.com/maizil41/RadMonv2.git /usr/share/RadMonv2 > /dev/null 2>&1
 
-echo -e "\e[33mDownloading freeradius3.zip\e[0m"
-wget https://raw.githubusercontent.com/maizil41/luci-app-radius-monitor/main/files/freeradius3.zip -O /etc/freeradius3.zip > /dev/null 2>&1
+# echo -e "\e[33mDownloading freeradius3.zip\e[0m"
+# wget https://raw.githubusercontent.com/maizil41/luci-app-radius-monitor/main/files/freeradius3.zip -O /etc/freeradius3.zip > /dev/null 2>&1
 
 echo -e "\e[33mExtracting freeradius3.zip\e[0m"
 cd /etc/ && unzip -o freeradius3.zip > /dev/null
@@ -47,24 +47,14 @@ chmod +x /usr/bin/radmon-exec /usr/bin/radmon-log /usr/bin/radmon-kuota
 
 sleep 1
 
+echo -e "\e[33mChange radmon\e[0m"
+unzip /root/radmonv2.zip -d /usr/share
+
+sleep 1
+
 echo -e "\e[33mCrate link On /www\e[0m"
 ln -sf /usr/share/RadMonv2 /www/RadMonv2
 
-echo -e "\e[33mChecking for database 'radmon'\e[0m"
-if ! mysql -u root -p"$pass" -e "USE radmon" 2>/dev/null; then
-    echo -e "\e[33mDB 'radmon' not exist, creating database...\e[0m"
-    mysql -u root -p"$pass" -e "CREATE DATABASE radmon CHARACTER SET utf8"
-    mysql -u root -p"$pass" -e "GRANT ALL ON radmon.* TO 'radmon'@'localhost' IDENTIFIED BY 'radmon' WITH GRANT OPTION"
-else
-    echo -e "\e[33mDB 'radmon' already exist, skipping...\e[0m"
-fi
-
-sleep 1
-
-echo -e "\e[33mImport Database...\e[0m"
-cd /www/RadMonv2 && mysql -u root -p"$pass" radmon < radmonv2.sql
-
-sleep 1
 
 echo -e "\e[33mSetup cronjob...\e[0m"
 
