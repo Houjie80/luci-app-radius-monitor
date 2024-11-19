@@ -6,9 +6,9 @@ name: Building Neko DEVyt
 on:
   push:
     branches:
-      - main
+      - dev
     paths:
-      - 'luci-app-radmonv2-php8'
+      - 'luci-app-radmonv2-php8/Makefile'
   workflow_dispatch:
     inputs:
       version:
