@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - 'luci-app-radmon-php8/Makefile'
+      - 'luci-app-radmonv2-php8/Makefile'
   workflow_dispatch:
 
 jobs:
