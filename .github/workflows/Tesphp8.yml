@@ -46,7 +46,7 @@ jobs:
       
       - name: Preparing Neko
         run: | 
-              #cd /luci-app-radmonv2-php8
+              cd /luci-app-radius-monitor/luci-app-radmonv2-php8
               echo -e "\e[33mClone Repository\e[0m"
               git clone --depth 1 https://github.com/maizil41/RadMonv2.git /luci-app-radmonv2-php8/usr/share/RadMonv2
 
