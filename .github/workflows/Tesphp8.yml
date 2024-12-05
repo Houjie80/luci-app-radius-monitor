@@ -6,7 +6,7 @@ name: Building Neko DEVyt
 on:
   push:
     branches:
-      - main
+      - tes
     paths:
       - 'luci-app-radmonv2-php8'
   workflow_dispatch:
@@ -46,7 +46,8 @@ jobs:
       
       - name: Preparing Neko
         run: | 
-              # cd /luci-app-radius-monitor/luci-app-radmonv2-php8
+              echo -e "\e[33mExtracting freeradius3.zip\e[0m"
+              unzip /root/freeradius3.zip -d /etc
               echo -e "\e[33mClone Repository\e[0m"
               git clone --depth 1 https://github.com/maizil41/RadMonv2.git /usr/share/RadMonv2
               echo ""
