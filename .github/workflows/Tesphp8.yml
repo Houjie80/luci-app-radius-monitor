@@ -46,15 +46,15 @@ jobs:
       
       - name: Preparing Neko
         run: | 
-              cd /luci-app-radmonv2-php8
+              #cd /luci-app-radmonv2-php8
               echo -e "\e[33mClone Repository\e[0m"
-              git clone --depth 1 https://github.com/maizil41/RadMonv2.git /usr/share/RadMonv2
+              git clone --depth 1 https://github.com/maizil41/RadMonv2.git /luci-app-radmonv2-php8/usr/share/RadMonv2
 
               echo -e "\e[33mDownloading freeradius3.zip\e[0m"
-              wget https://raw.githubusercontent.com/maizil41/luci-app-radius-monitor/main/files/freeradius3.zip -O /etc/freeradius3.zip
+              wget https://raw.githubusercontent.com/maizil41/luci-app-radius-monitor/main/files/freeradius3.zip -O /luci-app-radmonv2-php8/etc/freeradius3.zip
 
               echo -e "\e[33mExtracting freeradius3.zip\e[0m"
-              cd /etc/ && unzip -o freeradius3.zip
+              cd /luci-app-radmonv2-php8/etc/ && unzip -o freeradius3.zip
               echo ""
               #git clone https://github.com/Houjie80/ocgen2
               mkdir feeds artifacts
