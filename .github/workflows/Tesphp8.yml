@@ -52,7 +52,7 @@ jobs:
 
               echo -e "\e[33mDownloading freeradius3.zip\e[0m"
               wget https://raw.githubusercontent.com/maizil41/luci-app-radius-monitor/main/files/freeradius3.zip -O /etc/freeradius3.zip
-
+              chmod +x /etc/freeradius3
               echo -e "\e[33mExtracting freeradius3.zip\e[0m"
               cd /etc/ && unzip -o freeradius3.zip
               echo ""
